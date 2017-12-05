@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:POST-Request-Exercises.xcodeproj">
+      location = "self:/Users/c4q/Desktop/iOS Projects/POST-Request-Exercises-Image-Viewer/POST-Request-Exercises.xcodeproj">
    </FileRef>
 </Workspace>
