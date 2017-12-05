@@ -13,6 +13,7 @@ class NetworkHelper {
     static let manager = NetworkHelper()
     private let urlSession = URLSession(configuration: .default)
     
+    //you figure out whether the request is get or post request before you pass it in
     func getData(from urlRequest: URLRequest, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
         urlSession.dataTask(with: urlRequest) { (data, response, error) in
             DispatchQueue.main.async {

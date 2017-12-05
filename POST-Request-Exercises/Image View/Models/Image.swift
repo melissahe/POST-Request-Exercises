@@ -9,7 +9,11 @@
 import Foundation
 
 struct ResultsWrapper: Codable {
-    let hits: [Image]
+    let images: [Image]
+    
+    enum CodingKeys: String, CodingKey {
+        case images = "hits"
+    }
 }
 
 struct Image: Codable {
@@ -19,7 +23,7 @@ struct Image: Codable {
     let numberOfViews: Int
     let numberOfDownloads: Int
     let thumbnailURLString: String
-    let fullSizeURLString: String
+    let fullSizeURLString: String?
     let userName: String
     let userImageURLString: String
     

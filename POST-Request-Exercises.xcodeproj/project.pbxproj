@@ -16,6 +16,9 @@
 		812E7EAB1FD72CDB005AD55F /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EAA1FD72CDB005AD55F /* ImageAPIClient.swift */; };
 		812E7EAD1FD72CE3005AD55F /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EAC1FD72CE3005AD55F /* NetworkHelper.swift */; };
 		812E7EAF1FD72CF0005AD55F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EAE1FD72CF0005AD55F /* AppError.swift */; };
+		812E7EB61FD73930005AD55F /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EB51FD73930005AD55F /* ImageTableViewCell.swift */; };
+		812E7EB81FD73A10005AD55F /* ConvertToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EB71FD73A10005AD55F /* ConvertToImage.swift */; };
+		812E7EBA1FD747ED005AD55F /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7EB91FD747ED005AD55F /* ImageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		812E7EAA1FD72CDB005AD55F /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		812E7EAC1FD72CE3005AD55F /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		812E7EAE1FD72CF0005AD55F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		812E7EB51FD73930005AD55F /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		812E7EB71FD73A10005AD55F /* ConvertToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToImage.swift; sourceTree = "<group>"; };
+		812E7EB91FD747ED005AD55F /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 				812E7E981FD72805005AD55F /* Main.storyboard */,
 				812E7EAE1FD72CF0005AD55F /* AppError.swift */,
 				812E7EAC1FD72CE3005AD55F /* NetworkHelper.swift */,
+				812E7EB71FD73A10005AD55F /* ConvertToImage.swift */,
 				812E7EA71FD729D4005AD55F /* Image View */,
 				812E7EA01FD72805005AD55F /* Info.plist */,
 			);
@@ -76,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				812E7E961FD72805005AD55F /* ImageListViewController.swift */,
+				812E7EB91FD747ED005AD55F /* ImageDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -84,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				812E7EB11FD72D17005AD55F /* Models */,
+				812E7EB41FD736F2005AD55F /* Views */,
 				812E7EA61FD729CB005AD55F /* View Controllers */,
 			);
 			path = "Image View";
@@ -106,6 +115,14 @@
 				812E7EAA1FD72CDB005AD55F /* ImageAPIClient.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		812E7EB41FD736F2005AD55F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				812E7EB51FD73930005AD55F /* ImageTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812E7EB61FD73930005AD55F /* ImageTableViewCell.swift in Sources */,
 				812E7E971FD72805005AD55F /* ImageListViewController.swift in Sources */,
 				812E7EA91FD72CD0005AD55F /* Image.swift in Sources */,
 				812E7EAF1FD72CF0005AD55F /* AppError.swift in Sources */,
 				812E7EAD1FD72CE3005AD55F /* NetworkHelper.swift in Sources */,
 				812E7E951FD72805005AD55F /* AppDelegate.swift in Sources */,
+				812E7EB81FD73A10005AD55F /* ConvertToImage.swift in Sources */,
+				812E7EBA1FD747ED005AD55F /* ImageDetailViewController.swift in Sources */,
 				812E7EAB1FD72CDB005AD55F /* ImageAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/POST-Request-Exercises-Image-VIewer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/POST-Request-Exercises/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Melissa-He.POST-Request-Exercises-Image-Viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,7 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/POST-Request-Exercises-Image-VIewer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/POST-Request-Exercises/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Melissa-He.POST-Request-Exercises-Image-Viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";

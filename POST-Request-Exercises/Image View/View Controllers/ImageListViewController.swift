@@ -16,7 +16,7 @@ class ImageListViewController: UIViewController {
     
     var searchTerm: String = "" {
         didSet {
-            //to do
+            loadData()
         }
     }
     
@@ -24,11 +24,22 @@ class ImageListViewController: UIViewController {
         super.viewDidLoad()
         imageTableView.delegate = self
         imageTableView.dataSource = self
+        imageSearchBar.delegate = self
     }
     
     func loadData() {
-        //to do - get images for table view
-        //should reload tableview
+        ImageAPIClient.manager.getImages(
+            from: searchTerm,
+            completionHandler: { (onlineImages) in
+                self.images = onlineImages
+                self.imageTableView.reloadData()
+        },
+            errorHandler: { (appError) in
+                let alertController = UIAlertController(title: "ERROR:", message: "\(appError)", preferredStyle: UIAlertControllerStyle.alert)
+                let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+        })
     }
 
 }
@@ -48,7 +59,20 @@ extension ImageListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)
         let currentImage = images[indexPath.row]
         
-        //to do
+        if let imageCell = cell as? ImageTableViewCell {
+            
+            imageCell.searchImageView.image = nil
+            
+            ConvertToImage.tool.getImage(
+                from: currentImage.thumbnailURLString,
+                completionHandler: { (onlineImage) in
+                    imageCell.searchImageView.image = onlineImage
+                    imageCell.setNeedsLayout()
+            },
+                errorHandler: {print($0)})
+            
+            return imageCell
+        }
         
         return cell
     }
@@ -63,5 +87,20 @@ extension ImageListViewController: UISearchBarDelegate {
         }
         
         searchTerm = searchText
+    }
+    
+    //make sure search text doesn't go over 100 character limit
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if searchBar.text?.count == 100 && text != "" {
+            //error message
+            let alertController = UIAlertController(title: "ERROR:", message: "You cannot have more than 100 characters in the search query.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
     }
 }
