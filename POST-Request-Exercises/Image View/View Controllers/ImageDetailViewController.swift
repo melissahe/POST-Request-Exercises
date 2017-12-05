@@ -26,7 +26,14 @@ class ImageDetailViewController: UIViewController {
     }
     
     @IBAction func addImageButtonPressed(_ sender: UIButton) {
-        //to do - set up post requests
+        let name = "Someone who shall not be named lolol"
+        
+        let urlString = image.fullSizeURLString ?? image.thumbnailURLString
+        
+        //initialize foundation object to pass into post method
+        let favoriteImage = FavoriteImage(imageURLString: urlString, studentName: name)
+        
+        FavoriteImageAPIClient.manager.post(favoriteImage: favoriteImage, completionHandler: {print($0)}, errorHandler: {print($0)})
     }
     
     func setUpUI() {
