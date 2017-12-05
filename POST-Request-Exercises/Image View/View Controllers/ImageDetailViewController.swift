@@ -26,16 +26,41 @@ class ImageDetailViewController: UIViewController {
     }
     
     @IBAction func addImageButtonPressed(_ sender: UIButton) {
-        //to do
+        //to do - set up post requests
     }
     
     func setUpUI() {
+        //Labels
+        viewsLabel.text = "\(image.numberOfViews) views"
+        likesLabel.text = "\(image.numberOfLikes) likes"
+        favoritesLabel.text = image.numberOfFavorites.description
+        usernameLabel.text = image.userName
+        downloadsLabel.text = image.numberOfDownloads.description
         
         setUpImages()
     }
 
     func setUpImages() {
+        //full size image
+        let fullSizeImageStr = image.fullSizeURLString ?? image.thumbnailURLString
         
+        ConvertToImage.tool.getImage(
+            from: fullSizeImageStr,
+            completionHandler: { (onlineImage) in
+                self.fullSizeImageView.image = onlineImage
+        },
+            errorHandler: { _ in
+                self.fullSizeImageView.image = #imageLiteral(resourceName: "image_not_available")
+        })
+        
+        //user image
+        ConvertToImage.tool.getImage(
+            from: image.userImageURLString,
+            completionHandler: { (onlineImage) in
+                self.userImageView.image = onlineImage
+        },
+            errorHandler: { _ in
+                self.fullSizeImageView.image = #imageLiteral(resourceName: "image_not_available")
+        })
     }
-    
 }

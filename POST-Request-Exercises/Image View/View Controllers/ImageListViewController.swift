@@ -41,6 +41,17 @@ class ImageListViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if
+            let selectedCell = sender as? ImageTableViewCell,
+            let selectedIndex = imageTableView.indexPath(for: selectedCell),
+            let destinationVC = segue.destination as? ImageDetailViewController {
+            let currentImage = images[selectedIndex.row]
+            
+            destinationVC.image = currentImage
+        }
+    }
 
 }
 
