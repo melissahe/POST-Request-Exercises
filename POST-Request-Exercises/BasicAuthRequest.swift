@@ -51,7 +51,7 @@ class BasicAuthRequest {
     //should build and return auth string for header injection
     private func buildAuthString(username: String, password: String) -> String {
         //1. convert name and pass to right string format
-        let nameAndPassStr = String(format: "%@:%@", username, password)
+        let nameAndPassStr = "\(username):\(password)"
         
         //2. convert string to data (utf8)
         let nameAndPassData = nameAndPassStr.data(using: .utf8)!

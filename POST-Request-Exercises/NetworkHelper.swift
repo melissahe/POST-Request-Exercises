@@ -23,9 +23,8 @@ class NetworkHelper {
                 }
                 
                 if let response = response as? HTTPURLResponse {
-                    guard response.statusCode >= 200, response.statusCode < 300 else {
+                    if response.statusCode < 200, response.statusCode > 300 {
                         errorHandler(AppError.badStatusCode(num: response.statusCode))
-                        return
                     }
                 }
                 

@@ -253,6 +253,9 @@
                                                 <constraint firstItem="ALY-yX-MOz" firstAttribute="top" secondItem="8HY-bW-7M6" secondAttribute="top" constant="8" id="sVa-Cx-FUW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteImageView" destination="ALY-yX-MOz" id="EF3-Eo-wek"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
